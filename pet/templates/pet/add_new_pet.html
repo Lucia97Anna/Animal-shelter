@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<body>
+    <div class="mx-auto my-1 p-4">
+    <h1>Add a new animal</h1>
+    <br>
+
+    <form action="", method="post", autocomplete="off">
+        {% csrf_token %}
+    
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Type</span>
+            {{ pet_form.pet_type|add_class:'form-control' }}
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Name</span>
+            {{pet_form.pet_name|add_class:'form-control' }}
+        </div>
+         <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Birthday</span>
+            {{pet_form.birthday|add_class:'form-control' }}
+        </div>
+         <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">High</span>
+            {{measure_form.pet_high|add_class:'form-control' }}
+        </div>
+         <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Weight</span>
+            {{measure_form.pet_weight|add_class:'form-control' }}
+        </div>
+         <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Passport number</span>
+            {{pet_form.pet_passport_number|add_class:'form-control' }}
+        </div>
+
+        <button type="submit" class="btn btn-outline-secondary">Save</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="location.href='{% url 'search' %}'">Cancel</button>
+
+    </div>
+    </form>
+<body>
+</html>
+{% endblock %}

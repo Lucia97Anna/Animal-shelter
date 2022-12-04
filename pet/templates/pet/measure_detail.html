@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<body>
+    <div class="mx-auto my-1 p-4">
+    <h1 class="h1">Measurements</h1>
+    <br>     
+
+    <div class="pet-list row">
+        {% for pet in measure_model %}
+        <ul class="pets-list__item list-group list-group-flush col-sm-6">
+            <div class="card" style="margin-bottom: 1em;">
+            <li class="list-group-item">Name: {{pet.pet}}</li>
+            <li class="list-group-item">High: {{pet.pet_high}}</li>
+            <li class="list-group-item">Weight: {{pet.pet_weight}}</li>
+            <li class="list-group-item">Date: {{pet.measure_date}}</li>
+
+        </div>
+        </ul>
+        {% endfor %}
+    </div>
+    </div>
+    <body>
+{% endblock %}

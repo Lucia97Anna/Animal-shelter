@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<body>
+    <div class="mx-auto my-1 p-4">
+    <h1>Animal measurements</h1>
+    <br>
+
+    <form action="", method="post", autocomplete="off">
+        {% csrf_token %}
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Name</span>
+        {{form.pet|add_class:'form-control' }}
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">High</span>
+        {{form.pet_high|add_class:'form-control' }}
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Weight</span>
+        {{form.pet_weight|add_class:'form-control' }}
+        </div>
+
+        <button type="submit" class="btn btn-outline-secondary">Save</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="location.href='{% url 'search' %}'">Cancel</button>
+
+    </div>
+    </form>
+<body>
+</html>
+{% endblock %}

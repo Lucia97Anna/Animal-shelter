@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<body>
+    <div class="mx-auto my-1 p-4">
+    <h1 class="h1">List of animals in the shelter</h1>
+    <br>
+
+    <div class="d-flex flex-row-reverse" style="margin-bottom: 1em;">      
+        <form method="get" class="d-flex">
+            {{ filter.form.as_p }}
+            <button type="submit" class="btn btn btn-secondary" style="margin-left: 1em;">Поиск</button>
+        </form>
+    </div>      
+
+    <div class="pet-list row">
+        {% for pet in filter.qs %}
+        <ul class="pets-list__item list-group list-group-flush col-sm-6">
+            <div class="card" style="margin-bottom: 1em;">
+            <li class="list-group-item">Type: {{pet.pet_type}}</li>
+            <li class="list-group-item">Name: {{pet.pet_name}}</li>
+            <li class="list-group-item">Birthday: {{pet.birthday}}</li>
+            <li class="list-group-item">Age: {{pet.age}}</li>
+            <li class="list-group-item">High: {{pet.high}}</li>
+            <li class="list-group-item">Weight: {{pet.weight}}</li>
+            <li class="list-group-item">Passport: {{pet.has_passport}}</li>
+            <li class="list-group-item">Passport number: {{pet.pet_passport_number}}</li>
+            <li class="list-group-item">Feed amount: {{pet.feed_amount}}g</li>
+
+
+            <div class="d-flex justify-content-around" style="margin: 1rem 0;">
+                <a href="{% url 'pet_medcard' pet.id%}"><button class="btn btn-outline-secondary">Medical card</button></a>
+                <a href="{% url 'pet_measure' pet.id%}"><button class="btn btn-outline-secondary">Measurements</button></a>
+                <a href="{% url 'pet_edit' pet.id%}"><button class="btn btn-outline-secondary">Change</button></a>
+                <a href="{% url 'pet_delete' pet.id%}"><button class="btn btn-outline-secondary">Delete</button></a>
+            </div>
+        </div>
+        </ul>
+        {% endfor %}
+    </div>
+    </div>
+    <body>
+{% endblock %}

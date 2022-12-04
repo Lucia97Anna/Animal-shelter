@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" type="text/css" href="{% static 'pet/css/bootstrap.css' %}"/>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'search' %}">Home <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'pet_add' %}">Add animal</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'add_pet_measure' %}">Measurements</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'add_pet_medcard' %}">Medical card</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </head>
+
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+</html>

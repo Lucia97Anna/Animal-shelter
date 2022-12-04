@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<body>
+    <div class="mx-auto my-1 p-4">
+    <h1 class="h1">Medical card</h1>
+    <br>     
+
+    <div class="pet-list row">
+        {% for pet in med_card_model %}
+        <ul class="pets-list__item list-group list-group-flush col-sm-6">
+            <div class="card" style="margin-bottom: 1em;">
+            <li class="list-group-item">Name: {{pet.pet}}</li>
+            <li class="list-group-item">Diagnosis: {{pet.pet_sickness}}</li>
+            <li class="list-group-item">Date: {{pet.MedCard_date}}</li>
+
+        </div>
+        </ul>
+        {% endfor %}
+    </div>
+    </div>
+    <body>
+{% endblock %}
